@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
-from datetime import time
-from datetime import date
 from datetime import datetime
 from datetime import timedelta
 import os
 from os import path
 import json
 
-csv_path='./resources.csv'
+csv_path=os.path.dirname(os.path.realpath(__file__))+'/resources.csv'
 cpu_count=int(os.popen('cat /proc/cpuinfo | grep -c "proc"').read())
 interval=1
 io_interval=10
 
+# Replace rekursive all ocurences of original in string with replacement
 def replace_all(string : str, original:str,replacement:str):
     while original in string:
         string=string.replace(original,replacement)
@@ -19,6 +18,7 @@ def replace_all(string : str, original:str,replacement:str):
 
 def get_cpu(head:bool=False):
     output=''
+    replace_all()
     if head:
         for i in range(0,cpu_count):
             output+=",CPU"+str(i)+" Mhz"
