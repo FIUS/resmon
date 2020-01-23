@@ -18,7 +18,6 @@ def replace_all(string : str, original:str,replacement:str):
 
 def get_cpu(head:bool=False):
     output=''
-    replace_all()
     if head:
         for i in range(0,cpu_count):
             output+=",CPU"+str(i)+" Mhz"
